@@ -1,4 +1,4 @@
-import django
+
 
 
 from django import forms
@@ -10,4 +10,11 @@ class StudentsFormulario(forms.Form):
 
 class StudentsSearching(forms.Form):
     name = forms.CharField(max_length=20)
+
+class TeachersFormulario(forms.Form):
+    name = forms.CharField(max_length=20)
+    last_name = forms.CharField(max_length=30)
+    subject_matter = forms.CharField(max_length=30)
+
+
     

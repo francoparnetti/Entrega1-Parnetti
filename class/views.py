@@ -2,8 +2,8 @@ from unicodedata import name
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from Class.models import Students
-from .forms import StudentsFormulario, StudentsSearching
+from .models import Students, Teachers
+from .forms import StudentsFormulario, StudentsSearching, TeachersFormulario
 
 # Create your views here.
 
@@ -15,7 +15,6 @@ def forms(request):
             data = form.cleaned_data
             students = Students(name=data['name'], last_name=data['last_name'], career=data['career'])
             students.save()
-            # return render(request, "index/homepage.html", {})
             return redirect('index')
 
     form = StudentsFormulario()
@@ -33,4 +32,19 @@ def students_list(request):
 
     form = StudentsSearching()
     return render(request, "class/students_list.html", {'form': form, 'students': students})
+
+
+def TeachersForms(request):
+    if request.method == 'POST':
+        form = TeachersFormulario(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            teachers = Teachers(name=data['name'], last_name=data['last_name'], subject_matter=data['subject_matter'])
+            teachers.save()
+            return redirect('index')
+
+    form = TeachersFormulario()
+    return render(request, "class/teachers.html", {'form': form})
+
 
