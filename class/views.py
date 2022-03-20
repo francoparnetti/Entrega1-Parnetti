@@ -1,15 +1,14 @@
 from unicodedata import name
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 
 from .models import Students, Teachers
-from .forms import StudentsFormulario, StudentsSearching, TeachersFormulario
+from .forms import StudentsRegister, StudentsSearching, TeachersRegister
 
 # Create your views here.
 
-def forms(request):
+def students_form(request):
     if request.method == 'POST':
-        form = StudentsFormulario(request.POST)
+        form = StudentsRegister(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -17,8 +16,8 @@ def forms(request):
             students.save()
             return redirect('index')
 
-    form = StudentsFormulario()
-    return render(request, "class/forms.html", {'form': form})
+    form = StudentsRegister()
+    return render(request, "class/students.html", {'form': form})
 
 def students_list(request):
 
@@ -34,9 +33,9 @@ def students_list(request):
     return render(request, "class/students_list.html", {'form': form, 'students': students})
 
 
-def TeachersForms(request):
+def teachers_form(request):
     if request.method == 'POST':
-        form = TeachersFormulario(request.POST)
+        form = TeachersRegister(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -44,7 +43,7 @@ def TeachersForms(request):
             teachers.save()
             return redirect('index')
 
-    form = TeachersFormulario()
+    form = TeachersRegister()
     return render(request, "class/teachers.html", {'form': form})
 
 

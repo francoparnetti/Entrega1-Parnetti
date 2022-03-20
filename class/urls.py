@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import forms, students_list,TeachersForms
+from .views import students_form, students_list, teachers_form
 
 urlpatterns = [
-    path("forms/", forms, name="Forms"),
-    path("Teachers/",TeachersForms, name="teachers"),
-    path("students/",students_list, name="students_list")
+    path("students/", students_form, name="students"),
+    path("teachers/", teachers_form, name="teachers"),
+    path("students_list/",students_list, name="students_list")
 ]
 
     

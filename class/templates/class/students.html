@@ -2,7 +2,7 @@
 
 
 {% block title %}
-        <title> Formularios </title>
+        <title> Estudiantes </title>
 {% endblock title %}
 
 
@@ -12,7 +12,7 @@
     <form action="" method="post">
         {% csrf_token %}
         <table>
-        {{form.as_table}}
+            {{form.as_table}}
         </table>
         <button>Crear</button>
     
