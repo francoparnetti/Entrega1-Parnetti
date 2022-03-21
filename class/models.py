@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Teachers(models.Model):
     name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=30)
@@ -18,7 +19,8 @@ class Students(models.Model):
     def __str__(self):
         return f'{self.name} {self.last_name} {self.career}'
         
+              
 class Careers(models.Model):
     name = models.CharField(max_length=50)
-    serie = models.IntegerField()
+    commission = models.IntegerField()
 

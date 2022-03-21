@@ -1,7 +1,5 @@
-
-
-
 from django import forms
+
 
 class StudentsRegister(forms.Form):
     name = forms.CharField(max_length=20)
@@ -15,10 +13,13 @@ class TeachersRegister(forms.Form):
     subject_matter = forms.CharField(max_length=30)
 
 
+class CareersRegister(forms.Form):
+    name = forms.CharField(max_length=50)
+    commission = forms.IntegerField()
+
+
 class StudentsSearching(forms.Form):
     name = forms.CharField(max_length=20)
 
 
 
-
-    

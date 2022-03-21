@@ -1,8 +1,8 @@
 from unicodedata import name
 from django.shortcuts import redirect, render
 
-from .models import Students, Teachers
-from .forms import StudentsRegister, StudentsSearching, TeachersRegister
+from .models import Students, Teachers, Careers
+from .forms import StudentsRegister, StudentsSearching, TeachersRegister, CareersRegister
 
 # Create your views here.
 
@@ -47,3 +47,15 @@ def teachers_form(request):
     return render(request, "class/teachers.html", {'form': form})
 
 
+def careers_form(request):
+    if request.method == "POST":
+        form = CareersRegister(request.POST)
+        
+        if form.is_valid():
+            data = form.cleaned_data
+            careers = Careers(name = data["name"], commission = data["commission"])
+            careers.save()
+            return redirect("index")
+    
+    form = CareersRegister()
+    return render(request, "class/careers.html", {'form': form})
