@@ -1,9 +1,25 @@
 {% extends 'index/index.html' %}
 
+{% block title %}
+    <title> Inicio </title>
+{% endblock title %}
+
+
+{% block navbar %}
+    <nav>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href= "#about"> Nuestro Proyecto</a></li> 
+            
+        </ul>
+    </nav>
+
+{% endblock navbar %}
+    
+
+
 
 {% block body %}
-
-
+    
 
 
         <!-- Header-->
@@ -16,22 +32,22 @@
             </div>
         </header>
         <!-- About section-->
-        {% comment %} <section id="about">
+        <section id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2> About</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                        <h2> Sobre Nuestro Proyecto</h2>
+                        <p class="lead">Esperamos poder desarrollar un blog de tipo campus, en donde profesores y alumnos puedan interactuar de manera comoda, permitiendo:</p>
                         <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+                            <li> Facilitación del material bibliográfico</li>
+                            <li> Espacio para consultas</li>
+                            <li> Entrega de tareas y trabajos</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </section> {% endcomment %}
+        </section>
+
         <!-- Services section-->
         {% comment %} <section class="bg-light" id="services">
             <div class="container px-4">
@@ -43,6 +59,9 @@
                 </div>
             </div>
         </section> {% endcomment %}
+
+
+
         <!-- Contact section-->
         {% comment %} <section id="contact">
             <div class="container px-4">
