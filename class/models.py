@@ -8,7 +8,7 @@ class Teachers(models.Model):
 
     
     def __str__(self):
-        return f'{self.name} {self.last_name} {self.subject_matter}'
+        return f'{self.name} {self.last_name}, Profesor/a de {self.subject_matter}'
 
 
 class Students(models.Model):
@@ -17,10 +17,13 @@ class Students(models.Model):
     career = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'{self.name} {self.last_name} {self.career}'
+        return f'{self.name} {self.last_name}, Estudiante de {self.career}'
         
               
 class Careers(models.Model):
     name = models.CharField(max_length=50)
     commission = models.IntegerField()
+    
+    def __str__(self):
+        return f"Carrera: {self.name} , Comisión: {self.commission}"
 
