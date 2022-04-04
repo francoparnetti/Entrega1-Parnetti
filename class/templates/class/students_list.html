@@ -2,23 +2,19 @@
 
 
 {% block title %}
-        <title> Formularios </title>
+        <title> List </title>
 {% endblock title %}
 
 
 {% block body %}
+    <a href={% url 'students_form' %}>Crear estudiante</a> 
     
-    <form action="" method="get">
-        {% csrf_token %}
-        <table>
-        {{form.as_table}}
-        </table>
-        <button>Buscar</button>
-    
-    </form>
 
-    {% for students in students %}
-        <li>{{students}}</li>
+    {% for student in students_list %}
+        <li>
+            {{student}}
+            <a href={% url 'update' student.id %}>Editar</a> 
+        </li>
     {% endfor %}
 
 {% endblock body %}

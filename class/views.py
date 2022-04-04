@@ -1,8 +1,10 @@
+from ast import Return
 from unicodedata import name
+from urllib import request
 from django.shortcuts import redirect, render
 
 from .models import Students, Teachers, Careers
-from .forms import StudentsRegister, StudentsSearching, TeachersRegister, CareersRegister
+from .forms import StudentForm, StudentsRegister, TeachersRegister, CareersRegister
 
 # Create your views here.
 
@@ -12,25 +14,26 @@ def students_form(request):
 
         if form.is_valid():
             data = form.cleaned_data
-            students = Students(name=data['name'], last_name=data['last_name'], career=data['career'])
-            students.save()
-            return redirect('index')
+            nuevo_estudiante= Students( 
+                name = data['name'],
+                last_name = data['last_name'],
+                career = data['career'])
+
+        nuevo_estudiante.save()
+        return redirect('list_students')
+           
 
     form = StudentsRegister()
     return render(request, "class/students.html", {'form': form})
 
-def students_list(request):
+def list_students(request):
 
-    name_to_search = request.GET.get('name', None)
+    students_list = Students.objects.all()
+    return render(
+            request, "class/students_list.html",
+            {"students_list": students_list}
+    )
 
-    if name_to_search is not None:
-        students = Students.objects.filter(name__icontains=name_to_search)
-
-    else:
-        students = Students.objects.all()
-
-    form = StudentsSearching()
-    return render(request, "class/students_list.html", {'form': form, 'students': students})
 
 
 def teachers_form(request):
@@ -59,3 +62,34 @@ def careers_form(request):
     
     form = CareersRegister()
     return render(request, "class/careers.html", {'form': form})
+
+def update_student(request, id):
+
+        estudiante = Students.objects.get(id=id)
+
+        if request.method == "POST":
+            form = StudentForm(request.POST)
+
+            if form.is_valid():
+                data = form.cleaned_data
+                estudiante.name= data['name']
+                estudiante.last_name=data['last_name']
+                estudiante.career=data['career']                 
+                estudiante.save()
+                return redirect('list_students')
+            
+        form = StudentForm(
+            initial={
+                'name': estudiante.name,
+                'last_name': estudiante.last_name,
+                'career': estudiante.career
+            }
+        )
+        return render(
+            request, "class/update_student.html",
+            {"form": form, "estudiante": estudiante}
+
+
+    )
+
+

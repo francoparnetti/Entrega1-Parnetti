@@ -1,0 +1,20 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Actualizar Estudiante </title>
+{% endblock title %}
+
+
+{% block body %}
+
+    <form action={% url 'update' estudiante.id %} method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Actualizar</button>
+    
+    </form>
+
+{% endblock body %}
