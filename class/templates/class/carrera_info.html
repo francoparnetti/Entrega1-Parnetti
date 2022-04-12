@@ -1,0 +1,14 @@
+{% extends 'index/usuario_logueado.html' %}
+
+
+{% block title %}
+        <title> Informacion de Carreras </title>
+{% endblock title %}
+
+
+{% block body %}
+    
+    {{object.commission}}
+  <br>  <a href={% url 'carrera_lista' %}>Volver</a> <br>
+{% endblock body %}
+

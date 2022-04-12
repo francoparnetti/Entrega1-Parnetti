@@ -2,21 +2,19 @@
 
 
 {% block title %}
-        <title> Profesores </title>
+        <title> Actualizar Profesores </title>
 {% endblock title %}
 
 
 {% block body %}
-    <form action="" method="post">
+
+    <form action={% url 'teachers_update' profesores.id %} method="post">
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
-        <button>Crear</button>
+        <button>Actualizar</button>
     
     </form>
-
-        <a href={% url 'ProfesorLista' %}>Teacher List</a>
-
 
 {% endblock body %}

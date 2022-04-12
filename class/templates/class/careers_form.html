@@ -2,18 +2,16 @@
 
 
 {% block title %}
-        <title> Carreras </title>
+        <title> Crear </title>
 {% endblock title %}
 
 
 {% block body %}
 
-    <form action="" method="post">
+    <form  method="post">
         {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <button>Crear</button>
+            {{form.as_p}}
+        <button>Enviar</button>
     
     </form>
 

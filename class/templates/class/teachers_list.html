@@ -1,0 +1,20 @@
+{% extends 'index/usuario_logueado.html' %}
+
+
+{% block title %}
+        <title> Lista Profesores </title>
+{% endblock title %}
+
+
+{% block body %}
+    <a href={% url 'teachers' %}>Crear Profesor</a> 
+    
+
+    {% for teacher in object_list %}
+        <li>
+            {{teacher}} 
+            <a href={% url 'teachers_update' teacher.id %}> Editar </a> 
+        </li>
+    {% endfor %}
+
+{% endblock body %}

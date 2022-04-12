@@ -1,4 +1,4 @@
-{% extends 'index/index.html' %}
+{% extends 'index/usuario_logueado.html' %}
 
 
 {% block title %}
@@ -14,6 +14,7 @@
         <li>
             {{student}}
             <a href={% url 'update' student.id %}>Editar</a> 
+            <a href={% url 'delete_student' student.id %}>Borrar</a> 
         </li>
     {% endfor %}
 

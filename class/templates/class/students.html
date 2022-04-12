@@ -1,8 +1,8 @@
-{% extends 'index/index.html' %}
+{% extends 'index/usuario_logueado.html' %}
 
 
 {% block title %}
-        <title> Estudiantes </title>
+        <title> Students </title>
 {% endblock title %}
 
 
@@ -16,5 +16,7 @@
         <button>Crear</button>
     
     </form>
+
+        <a href={% url 'list_students' %}>Students List</a>
 
 {% endblock body %}
