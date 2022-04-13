@@ -1,0 +1,28 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Detalle del Estudiante </title>
+{% endblock title %}
+
+
+{% block body %}
+    <p>
+        <a href= {% url 'students_list' %}>
+            Volver a la Lista
+        </a>
+    </p>
+    
+    <p>
+        <li>Nombre: {{object.name}}</li>
+        <li>Apellido: {{object.last_name}}</li>
+        <li>Carrera: {{object.career}}</li>
+            
+            
+        
+    </p>
+   
+
+
+
+{% endblock body %}

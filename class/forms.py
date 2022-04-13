@@ -19,17 +19,12 @@ class CareersRegister(forms.Form):
 
 
 class StudentsSearching(forms.Form):
-    name = forms.CharField(max_length=20, label = "Introduzca un nombre")
-
-class StudentForm(forms.Form):
-    name = forms.CharField(max_length=20, label = "Modifique su Nombre")
-    last_name = forms.CharField(max_length=30, label = "Modifique su Apellido")
-    career = forms.CharField(max_length=50, label = "Modifique su Carrera")
-
-class Teachers_form(forms.Form):
-    name = forms.CharField(max_length=20, label = "Modifique su Nombre")
-    last_name = forms.CharField(max_length=30, label = "Modifique su Apellido")
-    subject_matter = forms.CharField(max_length=30, label = "Modifique Materia Impartida")
+    name = forms.CharField(max_length=20, label = "Introduzca un nombre para buscar")
 
 
-
+class TeachersSearching(forms.Form):
+    name = forms.CharField(max_length=20, label = "Introduzca un nombre para buscar")
+    
+    
+class CareersSearching(forms.Form):
+    name = forms.CharField(max_length=20, label = "Introduzca una carrera para buscar")

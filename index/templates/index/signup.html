@@ -21,12 +21,12 @@
     </p>
     
         
-    <form action= {% url 'login' %} method="post">
+    <form action= {% url 'signup' %} method="post">
         {% csrf_token %}
         <table>
-            {{login_form.as_table}}
+            {{form.as_table}}
         </table>
-        <button> Ingresar </button>
+        <button> Registrarse </button>
     
     </form>
 

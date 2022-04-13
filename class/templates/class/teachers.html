@@ -1,4 +1,4 @@
-{% extends 'index/usuario_logueado.html' %}
+{% extends 'index/index.html' %}
 
 
 {% block title %}
@@ -7,6 +7,13 @@
 
 
 {% block body %}
+    <p>
+        <a href= {% url 'teachers_list' %}>
+            Volver a la Lista
+        </a>    
+    </p>
+    
+
     <form action="" method="post">
         {% csrf_token %}
         <table>
@@ -15,8 +22,5 @@
         <button>Crear</button>
     
     </form>
-
-        <a href={% url 'ProfesorLista' %}>Teacher List</a>
-
 
 {% endblock body %}

@@ -1,4 +1,4 @@
-{% extends 'index/usuario_logueado.html' %}
+{% extends 'index/index.html' %}
 
 
 {% block title %}
@@ -7,6 +7,12 @@
 
 
 {% block body %}
+    <p>
+        <a href= {% url 'careers_list' %}>
+            Volver a la Lista
+        </a> 
+    </p>
+    
 
     <form action="" method="post">
         {% csrf_token %}

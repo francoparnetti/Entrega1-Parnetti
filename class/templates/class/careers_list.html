@@ -8,9 +8,9 @@
 
 {% block body %}
     <p>
-        <a href= {% url 'teachers_form' %}>
-            Registrar Profesor
-        </a>  
+        <a href= {% url 'careers_form' %}>
+            Agregar Carrera
+        </a> 
     </p>
     
 
@@ -23,13 +23,12 @@
     
     </form>
 
-    {% for teacher in teachers %}
-        <li>   
-            <a href={% url 'teacher_detail' teacher.id %}> {{teacher}} </a>|
-            <a href={% url 'teacher_edit' teacher.id%}> Editar </a>|
-            <a href={% url 'teacher_delete' teacher.id %}> Eliminar </a>
+    {% for career in careers %}
+        <li>
+            <a href={% url 'career_detail' career.id %}> {{career}} </a>
+            <a href={% url 'career_edit' career.id %}> Editar </a>
+            <a href={% url 'career_delete' career.id %}> Eliminar </a>
         </li>
-        
     {% endfor %}
 
 {% endblock body %}

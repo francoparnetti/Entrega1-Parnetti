@@ -1,0 +1,28 @@
+{% extends 'index/index.html' %}
+
+{% block title %}
+        <title> Eliminar Estudiante </title>
+{% endblock title %}
+
+
+{% block body %}
+    <p>
+        <a href= {% url 'students_list' %}>
+            Volver a la Lista
+        </a>
+    </p>
+   
+    <p>
+        <form action="" method="post">
+            {% csrf_token %}
+            ¿Esta seguro de que quiere eliminar al siguiente estudiante de la Base de Datos?:
+               {{object}}
+            <button>Eliminar</button>
+        
+        </form>
+    </p>
+
+
+
+
+{% endblock body %}

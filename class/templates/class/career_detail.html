@@ -1,0 +1,25 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Detalle de la Carrera </title>
+{% endblock title %}
+
+
+{% block body %}
+    <p>
+        <a href= {% url 'careers_list' %}>
+            Volver a la Lista
+        </a>
+    </p>
+    
+    <p>
+        <li>Nombre: {{object.name}}</li>
+        <li>Comision: {{object.commission}}</li>
+        
+    </p>
+   
+
+
+
+{% endblock body %}

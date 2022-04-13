@@ -5,8 +5,6 @@
 {% endblock title %}
 
 
-
-
 {% block navbar %}
     <nav>
         <ul class="navbar-nav ms-auto">
@@ -27,16 +25,7 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder"> 
-                
-            {% if msj %}
-                {{msj}}
-                {{username}}
-                
-            {% else %}
-                Bienvenidos 
-                {% endif %}
-                </h1>
+                <h1 class="fw-bolder"> Bienvenidos </h1>
                 <p class="lead"> Proximamente: Blog</p>
                 
                 {% comment %} <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a> {% endcomment %}

@@ -1,6 +1,26 @@
 {% extends 'index/index.html' %}
 
+
+{% block title %}
+        <title> Ingresar </title>
+{% endblock title %}
+
+
 {% block body %}
-<h1>Te deslogueaste correctamente!</h1>
+    <p>
+        Ya has cerrado sesión!
+    </p>
+        
+
+    <p>
+        <a href={% url 'login' %}> Ingresar nuevamente</a>
+    </p>
+    <p>
+        <a href= {% url 'index' %}>
+            Volver a Inicio
+        </a>  
+    </p>
+    
+
 
 {% endblock body %}

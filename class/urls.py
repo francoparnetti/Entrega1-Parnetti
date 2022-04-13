@@ -1,31 +1,23 @@
 from django.urls import path
 
-from .views import CarreraDetalle, CarreraLista, CrearCarrera, delete_student, students_form, list_students, teachers_form, update_student, update_teachers, delete_student, ProfesorLista, ProfesorDetalle, CarreraBorrar, CarreraEditar, CarreraDetalle, CrearCarrera 
+from . import views
 
 urlpatterns = [
-    path("students/", students_form, name="students_form"),
-    path("teachers/", teachers_form, name="teachers"),
-    path("students_list/",list_students, name="list_students"),
-    # path("careers/", careers_form, name = "careers"),
-    path("update/student/<int:id>", update_student, name = "update"),
-    path("update/teachers/<int:id>", update_teachers, name="teachers_update"),
-    path("delete/student/<int:id>", delete_student, name = "delete_student"),
-    path("profesores/", ProfesorLista.as_view(), name="ProfesorLista"),
-    path(r"^profesores/(?P<pk>\d+)$", ProfesorDetalle.as_view(), name="profesor_detalle"),
-    path("carreras/lista", CarreraLista.as_view(), name="carrera_lista"),
-    path("carreras/<int:pk>/borrar/", CarreraBorrar.as_view(), name="borrar_carrera"),
-    path("carreras/<int:pk>/editar/", CarreraEditar.as_view(), name="editar_carrera"),
-    path("carreras/<int:pk>/", CarreraDetalle.as_view(), name="carrera_detalle"),
-    path("carreras/crear/", CrearCarrera.as_view(), name="crear_carrera")
-
-
-    
-
-    
-
-
-
-
+    path("students/", views.students_form, name="students_form"),
+    path("teachers/", views.teachers_form, name="teachers_form"),
+    path("careers/", views.careers_form, name = "careers_form"),
+    path("students_list/", views.students_list, name="students_list"),
+    path("teachers_list/", views.teachers_list, name="teachers_list"),
+    path("careers_list/", views.careers_list, name="careers_list"),
+    path("students/detail/<int:pk>", views.StudentDetail.as_view() , name="student_detail"),
+    path("students/edit/<int:pk>", views.StudentEdit.as_view(), name="student_edit"),
+    path("students/delete/<int:pk>", views.StudentDelete.as_view(), name="student_delete"),
+    path("teachers/detail/<int:pk>", views.TeacherDetail.as_view() , name="teacher_detail"),
+    path("teachers/edit/<int:pk>", views.TeacherEdit.as_view(), name="teacher_edit"),
+    path("teachers/delete/<int:pk>", views.TeacherDelete.as_view(), name="teacher_delete"),
+    path("careers/detail/<int:pk>", views.CareerDetail.as_view() , name="career_detail"),
+    path("careers/edit/<int:pk>", views.CareerEdit.as_view(), name="career_edit"),
+    path("careers/delete/<int:pk>", views.CareerDelete.as_view(), name="career_delete"),
 ]
 
     

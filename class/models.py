@@ -1,4 +1,3 @@
-from msilib.schema import ListView
 from django.db import models
 
 
@@ -27,5 +26,4 @@ class Careers(models.Model):
     
     def __str__(self):
         return f"Carrera: {self.name} , Comisión: {self.commission}"
-
 

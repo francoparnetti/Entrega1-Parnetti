@@ -1,20 +1,34 @@
-{% extends 'index/usuario_logueado.html' %}
+{% extends 'index/index.html' %}
 
 
 {% block title %}
-        <title> List </title>
+        <title> Formularios </title>
 {% endblock title %}
 
 
 {% block body %}
-    <a href={% url 'students_form' %}>Crear estudiante</a> 
-    
+    <p>
+        <a href= {% url 'students_form' %}>
+            Registrar Estudiante
+        </a>
+    </p>
+   
 
-    {% for student in students_list %}
+    <form action="" method="get">
+        {% csrf_token %}
+        <table>
+        {{form.as_table}}
+        </table>
+        <button>Buscar</button>
+    
+    </form>
+
+    {% for student in students %}
+
         <li>
-            {{student}}
-            <a href={% url 'update' student.id %}>Editar</a> 
-            <a href={% url 'delete_student' student.id %}>Borrar</a> 
+            <a href={% url 'student_detail' student.id %}>  {{student}}   </a> |
+            <a href={% url 'student_edit' student.id %}> Editar </a> |
+            <a href={% url 'student_delete' student.id %}> Eliminar</a>
         </li>
     {% endfor %}
 
