@@ -26,6 +26,7 @@
                 <a class="navbar-brand" href={% url 'teachers_list' %}> Profesores </a>
                 <a class="navbar-brand" href={% url 'careers_list' %}> Carreras </a>
                 {% if request.user.is_authenticated %}
+                    <a class="navbar-brand" href={% url 'edit_user' %}> Editar Usuario </a>
                     <a class="navbar-brand" href={% url 'logout' %}> Salir </a>
 
                 {% else %}

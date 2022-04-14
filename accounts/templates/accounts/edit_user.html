@@ -1,0 +1,33 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Editar Usuario </title>
+{% endblock title %}
+
+
+{% block body %}
+    <p>
+        {% if message %}
+            {{message}}
+        
+        {% endif %}
+    </p>
+        
+    <p>
+        <a href= {% url 'index' %}>
+            Volver a Inicio
+        </a>  
+    </p>
+    
+        
+    <form action= {% url 'edit_user' %} method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button> Guardar cambios </button>
+    
+    </form>
+
+{% endblock body %}
