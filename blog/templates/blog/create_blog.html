@@ -2,14 +2,14 @@
 
 
 {% block title %}
-        <title> Crear Carrera </title>
+        <title> Crea tu post </title>
 {% endblock title %}
 
 
 {% block body %}
     <p>
-        <a href= {% url 'careers_list' %}>
-            Volver a la Lista
+        <a href= {% url 'blog_feed' %}>
+            Ir al Feed
         </a> 
     </p>
     
@@ -19,7 +19,7 @@
         <table>
             {{form.as_table}}
         </table>
-        <button>Crear</button>
+        <input type="submit" value="Publicar">
     
     </form>
 
