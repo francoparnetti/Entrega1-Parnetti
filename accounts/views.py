@@ -50,7 +50,7 @@ def signup(request):
 def edit_user(request):
     
     loged_user, _ = UserDetails.objects.get_or_create(user=request.user)
-    #El get or create devuelve dos valores, uno es el que necesitamos en loged user, y el otro es un booleano. Se suele usar el "_" como segundo nombre para asignarle el booleano, porque la mayor parte de las veces no se utiliza.
+    #El get_or_create devuelve dos valores, uno es el que necesitamos en loged user, y el otro es un booleano. Se suele usar el "_" como segundo nombre para asignarle el booleano, porque la mayor parte de las veces no se utiliza.
     
     if request.method == "POST":
         form = EditUser(request.POST,request.FILES)
@@ -58,7 +58,8 @@ def edit_user(request):
             request.user.email = form.cleaned_data["email"]
             request.user.first_name = form.cleaned_data["first_name"]
             request.user.last_name = form.cleaned_data["last_name"]
-            loged_user.profile_image = form.cleaned_data["profile_image"]
+            if form.cleaned_data["profile_image"] is not None:
+                loged_user.profile_image = form.cleaned_data["profile_image"]
             loged_user.link = form.cleaned_data["link"]
             loged_user.description = form.cleaned_data["description"]
             
@@ -68,14 +69,14 @@ def edit_user(request):
             request.user.save()
             loged_user.save()
             
-            return redirect("index")
+            return redirect("user_detail")
         else:
             return render(request,"edit_user/signup.html", {"form" : form, "message" : "Error al registrarse, por favor confirme que sus datos sean validos"})
     
     
     form = EditUser(
         initial={
-            "email": request.user.first_name,
+            "email": request.user.email,
             "password1": "",
             "password2": "",
             "first_name": request.user.first_name,
@@ -87,3 +88,8 @@ def edit_user(request):
         )
     
     return render(request,"accounts/edit_user.html", {"form" : form})
+
+@login_required
+def user_detail(request):
+    
+    return render(request, "accounts/user_detail.html", {})

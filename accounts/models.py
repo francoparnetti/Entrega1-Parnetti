@@ -6,6 +6,6 @@ from django.contrib.auth.models import User
 
 class UserDetails(models.Model):
     profile_image = models.ImageField(upload_to = "profile_image" , blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     link = models.URLField(null=True)
     description = models.CharField(max_length=1000)

@@ -1,0 +1,34 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Perfil </title>
+{% endblock title %}
+
+
+{% block body %}
+    <p>
+        {% if message %}
+            {{message}}
+        
+        {% endif %}
+    </p>
+        
+    <p>
+    
+        <a href={% url 'edit_user' %}> Editar Perfil</a>
+        <a href={% url 'logout' %}> Salir </a>
+    
+    </p>
+    
+    <p> <img src="{{request.user.userdetails.profile_image.url}}" alt="Imagen de Perfil" height="100px"></p>    
+    <p>{{request.user.first_name}}</p>
+    <p>{{request.user.last_name}}</p>
+    <p>{{request.user.email}}</p>
+    <p>{{request.user.userdetails.link}}</p>
+    
+
+
+    
+
+{% endblock body %}

@@ -14,8 +14,12 @@
     </p>
     <p><h4>{{object.title}}</h4></p>
     <p><h6>{{object.subtitle}}</h6></p>
+    <p>{{object.body | safe}}</p>
+    <p>Fecha de Creación: {{object.creation_date | date:"d-m-Y"}}</p>
        
-
+    <p> 
+        <button><a href={% url 'blog_edit' blog.id %}> Editar </a></button>
+    </p>
     
 
     

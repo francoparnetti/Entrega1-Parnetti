@@ -13,7 +13,7 @@ def create_blog(request):
         form = CreateBlog(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            blog = Blog(title=data["title"],subtitle=data["subtitle"])
+            blog = Blog(title=data["title"],subtitle=data["subtitle"],body=data["body"])
             blog.save()
             return redirect("blog_feed")
     
@@ -42,8 +42,8 @@ class BlogDetail(DetailView):
 class BlogEdit(LoginRequiredMixin, UpdateView):
     model = Blog
     template_name = "blog/blog_edit.html"
-    success_url = "/blog/feed/"
-    fields = ["title", "subtitle"]
+    success_url = "/blog/pages/"
+    fields = ["title", "subtitle","body"]
 
 class BlogDelete(LoginRequiredMixin, DeleteView):
     model = Blog

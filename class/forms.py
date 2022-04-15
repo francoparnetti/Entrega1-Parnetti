@@ -19,12 +19,12 @@ class CareersRegister(forms.Form):
 
 
 class StudentsSearching(forms.Form):
-    name = forms.CharField(max_length=20, label = "Introduzca un nombre para buscar")
+    name = forms.CharField(max_length=20, label = "Buscar Estudiante")
 
 
 class TeachersSearching(forms.Form):
-    name = forms.CharField(max_length=20, label = "Introduzca un nombre para buscar")
+    name = forms.CharField(max_length=20, label = "Buscar Profesor")
     
     
 class CareersSearching(forms.Form):
-    name = forms.CharField(max_length=20, label = "Introduzca una carrera para buscar")
+    name = forms.CharField(max_length=20, label = "Buscar Carrera")

@@ -27,8 +27,11 @@
                 <a class="navbar-brand" href={% url 'careers_list' %}> Carreras </a>
                 <a class="navbar-brand" href={% url 'blog_feed' %}> Blog </a>
                 {% if request.user.is_authenticated %}
-                    <a class="navbar-brand" href={% url 'edit_user' %}> Editar Usuario </a>
-                    <a class="navbar-brand" href={% url 'logout' %}> Salir </a>
+                    <a class="navbar-brand" href={% url 'user_detail' %}>
+                        <img src="{{request.user.userdetails.profile_image.url}}" alt="" height="40px"> 
+                        {{request.user.username}}
+                    </a>
+                
 
                 {% else %}
                     <a class="navbar-brand" href={% url 'login' %}> Ingresar </a>
@@ -58,9 +61,9 @@
 
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark fixed-bottom">
+        {% comment %} <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white"> Copyright &copy; Website 2022</p></div>
-        </footer>
+        </footer> {% endcomment %}
 
 
 
