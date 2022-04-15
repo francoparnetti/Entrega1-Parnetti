@@ -1,0 +1,30 @@
+{% extends 'index/index.html' %}
+
+
+{% block title %}
+        <title> Eliminar publicación </title>
+{% endblock title %}
+
+
+{% block body %}
+
+    <p>
+        <a href= {% url 'blog_feed' %}>
+            Volver al feed
+        </a>      |
+    </p>
+
+    <p>
+        <form action="" method="post">
+            {% csrf_token %}
+            ¿Esta seguro de que quiere eliminar la siguiente publicación?:
+            
+            <h6><p>{{object.title}}</p></h6>
+            <button>Eliminar</button>
+        
+        </form>
+    </p>
+  
+    
+
+{% endblock body %}

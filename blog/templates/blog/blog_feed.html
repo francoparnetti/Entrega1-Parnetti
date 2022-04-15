@@ -26,8 +26,15 @@
 
     {% for blog in blogs %}
 
-        <li> {{blog}} </li>
+        <p>
+            <h6><a href={% url 'blog_detail' blog.id %}> {{blog}} </a></h6>|
+            <button><a href={% url 'blog_edit' blog.id %}> Editar  </a></button>|
+            <button><a href={% url 'blog_delete' blog.id %}> Eliminar </a></button>
+        </p>
+
+    
         
+            
     
     {% endfor %}
 
