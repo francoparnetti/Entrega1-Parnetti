@@ -48,4 +48,4 @@ class BlogEdit(LoginRequiredMixin, UpdateView):
 class BlogDelete(LoginRequiredMixin, DeleteView):
     model = Blog
     template_name = "blog/blog_delete.html"
-    success_url = "/blog/feed/"
+    success_url = "/blog/pages/"

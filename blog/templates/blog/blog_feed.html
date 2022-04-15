@@ -23,19 +23,25 @@
         <input type="submit" value="Buscar">
     
     </form>
+    {% if blogs %}
+        {% for blog in blogs %}
 
-    {% for blog in blogs %}
+            <p>
+                <h6><a href={% url 'blog_detail' blog.id %}> {{blog}} </a></h6>|
+                <button><a href={% url 'blog_edit' blog.id %}> Editar  </a></button>|
+                <button><a href={% url 'blog_delete' blog.id %}> Eliminar </a></button>
+            </p>
 
-        <p>
-            <h6><a href={% url 'blog_detail' blog.id %}> {{blog}} </a></h6>|
-            <button><a href={% url 'blog_edit' blog.id %}> Editar  </a></button>|
-            <button><a href={% url 'blog_delete' blog.id %}> Eliminar </a></button>
-        </p>
-
-    
         
             
+                
+        
+        {% endfor %}
+    {% else %}
+
+            <h4> Aun no hay publicaciones </h4>
     
-    {% endfor %}
+    {% endif %}
+    
 
 {% endblock body %}
