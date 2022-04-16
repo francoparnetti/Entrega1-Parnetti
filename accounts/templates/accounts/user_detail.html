@@ -21,7 +21,10 @@
     
     </p>
     
-    <p> <img src="{{request.user.userdetails.profile_image.url}}" alt="Imagen de Perfil" height="100px"></p>    
+    <p> {% if request.user.userdetails.profile_image %}
+            <img src="{{request.user.userdetails.profile_image.url}}" alt="Imagen de Perfil" height="100px"></p>
+        {% endif %}    
+        
     <p>{{request.user.first_name}}</p>
     <p>{{request.user.last_name}}</p>
     <p>{{request.user.email}}</p>

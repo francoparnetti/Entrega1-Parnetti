@@ -14,7 +14,7 @@ def create_blog(request):
         if form.is_valid():
             data = form.cleaned_data
             
-            blog = Blog(title=data["title"],subtitle=data["subtitle"],body=data["body"], image=data["image"])
+            blog = Blog(title=data["title"],subtitle=data["subtitle"],body=data["body"], image=data["image"], author=data["author"])
                 
           
             blog.save()

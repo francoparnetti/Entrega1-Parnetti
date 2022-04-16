@@ -17,10 +17,10 @@
     <p>{{object.body | safe}}</p>
     
     {% if object.image %}
-        <p> <img src="{{object.image.url}}" alt="Imagen" ></p>
+        <p> <img src="{{object.image.url}}" alt="Imagen" height="528px"></p>
     {% endif %}
    
-    
+    <p>Autor: {{object.author}}</p>
     
     <p>Fecha de Creación: {{object.creation_date | date:"d-m-Y"}}</p>
        

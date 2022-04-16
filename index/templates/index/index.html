@@ -22,14 +22,30 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href={% url 'index' %}> Inicio </a>
-                <a class="navbar-brand" href={% url 'students_list' %}> Estudiantes </a>
-                <a class="navbar-brand" href={% url 'teachers_list' %}> Profesores </a>
-                <a class="navbar-brand" href={% url 'careers_list' %}> Carreras </a>
                 <a class="navbar-brand" href={% url 'blog_feed' %}> Blog </a>
+                <ul class="navbar-nav">
+                    <li class="mainNav-item dropdown">
+                      <a class="nav-link dropdown-toggle btn-lg text-white" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Información
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href={% url 'students_list' %}> Estudiantes </a></li>
+                        <li><a class="dropdown-item" href={% url 'teachers_list' %}> Profesores </a></li>
+                        <li><a class="dropdown-item" href={% url 'careers_list' %}> Carreras </a></li>
+                      </ul>
+                    </li>
+                </ul>
+
+
+
+                
                 {% if request.user.is_authenticated %}
+                    
                     <a class="navbar-brand" href={% url 'user_detail' %}>
-                        <img src="{{request.user.userdetails.profile_image.url}}" alt="" height="40px"> 
                         {{request.user.username}}
+                        {% if request.user.userdetails.profile_image %}
+                            <img src="{{request.user.userdetails.profile_image.url}}" alt="" height="30px">
+                        {% endif %}
                     </a>
                 
 

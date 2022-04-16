@@ -6,6 +6,7 @@ class CreateBlog(forms.Form):
     subtitle = forms.CharField(max_length=200, label = "Subtitulo")
     body = RichTextFormField(required=False, label = "Cuerpo")
     image = forms.ImageField(required=False, label="Imagen")
+    author = forms.CharField(max_length=50, label="Autor")
     
 class BlogSearch(forms.Form):
     title = forms.CharField(max_length=50, label = "Buscar publicación")

@@ -10,6 +10,7 @@ class Blog(models.Model):
     body = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to = "blog_image" , blank=True, null=True)
     creation_date = models.DateTimeField(default=timezone.now)
+    author = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return f'{self.title}'
