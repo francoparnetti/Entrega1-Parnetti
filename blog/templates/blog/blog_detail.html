@@ -10,13 +10,21 @@
     <p>
         <a href= {% url 'blog_feed' %}>
             Volver
-        </a>      |
+        </a>      
     </p>
     <p><h4>{{object.title}}</h4></p>
     <p><h6>{{object.subtitle}}</h6></p>
     <p>{{object.body | safe}}</p>
+    
+    {% if object.image %}
+        <p> <img src="{{object.image.url}}" alt="Imagen" ></p>
+    {% endif %}
+   
+    
+    
     <p>Fecha de Creación: {{object.creation_date | date:"d-m-Y"}}</p>
        
+
     <p> 
         <button><a href={% url 'blog_edit' blog.id %}> Editar </a></button>
     </p>

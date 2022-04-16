@@ -10,10 +10,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 login_required
 def create_blog(request):
     if request.method == "POST":
-        form = CreateBlog(request.POST)
+        form = CreateBlog(request.POST,request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            blog = Blog(title=data["title"],subtitle=data["subtitle"],body=data["body"])
+            
+            blog = Blog(title=data["title"],subtitle=data["subtitle"],body=data["body"], image=data["image"])
+                
+          
             blog.save()
             return redirect("blog_feed")
     
@@ -38,12 +41,13 @@ def blog_feed(request):
 class BlogDetail(DetailView):
     model = Blog
     template_name = "blog/blog_detail.html"
-    
+
+
 class BlogEdit(LoginRequiredMixin, UpdateView):
     model = Blog
     template_name = "blog/blog_edit.html"
     success_url = "/blog/pages/"
-    fields = ["title", "subtitle","body"]
+    fields = ["title", "subtitle","body","image"]
 
 class BlogDelete(LoginRequiredMixin, DeleteView):
     model = Blog
