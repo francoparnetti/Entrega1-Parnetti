@@ -22,8 +22,9 @@ class Students(models.Model):
               
 class Careers(models.Model):
     name = models.CharField(max_length=50)
-    commission = models.IntegerField()
+    amount_of_subjects = models.PositiveIntegerField()
+    degree_type = models.CharField(max_length=20)
     
     def __str__(self):
-        return f"Carrera: {self.name} , Comisión: {self.commission}"
+        return f"Carrera: {self.name}"
 

@@ -45,7 +45,7 @@ def careers_form(request):
         
         if form.is_valid():
             data = form.cleaned_data
-            careers = Careers(name = data["name"], commission = data["commission"])
+            careers = Careers(name = data["name"], amount_of_subjects = data["amount_of_subjects"], degree_type=data["degree_type"])
             careers.save()
             return redirect("careers_list")
     
@@ -103,11 +103,13 @@ class StudentDetail(DetailView):
     model = Students
     template_name = "class/student_detail.html"
     
+    
 class StudentEdit(LoginRequiredMixin, UpdateView):
     model = Students
     template_name = "class/student_edit.html"
     success_url = "/class/students_list/"
     fields = ["name", "last_name", "career"]
+
 
 class StudentDelete(LoginRequiredMixin, DeleteView):
     model = Students
@@ -115,14 +117,11 @@ class StudentDelete(LoginRequiredMixin, DeleteView):
     success_url = "/class/students_list/"
     
     
-    
-    
-    
-    
 
 class TeacherDetail(DetailView):
     model = Teachers
     template_name = "class/teacher_detail.html"
+  
     
 class TeacherEdit(LoginRequiredMixin, UpdateView):
     model = Teachers
@@ -130,26 +129,25 @@ class TeacherEdit(LoginRequiredMixin, UpdateView):
     success_url = "/class/teachers_list/"
     fields = ["name", "last_name", "subject_matter"]
 
+
 class TeacherDelete(LoginRequiredMixin, DeleteView):
     model = Teachers
     template_name = "class/teacher_delete.html"
     success_url = "/class/teachers_list/"
-    
-    
-    
-    
-    
+
     
     
 class CareerDetail(DetailView):
     model = Careers
     template_name = "class/career_detail.html"
     
+    
 class CareerEdit(LoginRequiredMixin, UpdateView):
     model = Careers
     template_name = "class/career_edit.html"
     success_url = "/class/careers_list/"
-    fields = ["name", "commission"]
+    fields = ["name", "amount_of_subjects","degree_type"]
+
 
 class CareerDelete(LoginRequiredMixin, DeleteView):
     model = Careers

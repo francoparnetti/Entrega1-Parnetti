@@ -8,9 +8,9 @@
 
 {% block body %}
     <p>
-        <a href= {% url 'students_list' %}>
-            Volver a la Lista
-        </a>
+        <a href= {% url 'students_list' %}>Volver a la Lista</a>
+        
+        
     </p>
     
     <p>
@@ -21,7 +21,11 @@
             
         
     </p>
-   
+    <p>
+        <a href= {% url 'student_edit' object.id %}>Editar</a>
+        <a href= {% url 'student_delete' object.id %}>Eliminar</a>
+    </p>
+      
 
 
 
