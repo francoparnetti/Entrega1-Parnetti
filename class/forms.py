@@ -15,7 +15,7 @@ class TeachersRegister(forms.Form):
 
 class CareersRegister(forms.Form):
     name = forms.CharField(max_length=50, label = "Carrera")
-    amount_of_subjects = forms.IntegerField(label="Cantidad de materias", min_value=0)
+    amount_of_subjects = forms.IntegerField(label="Cantidad de materias", min_value=0, max_value=99)
     degree_type = forms.CharField(max_length=20, label="Titulo")
 
 
