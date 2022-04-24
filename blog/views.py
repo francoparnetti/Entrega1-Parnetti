@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-login_required
+@login_required
 def create_blog(request):
     if request.method == "POST":
         form = CreateBlog(request.POST,request.FILES)
